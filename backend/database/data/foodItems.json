@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "name": "Margherita Pizza",
+    "description": "Classic pizza with tomato sauce, mozzarella, and fresh basil",
+    "price": 12.99,
+    "image": "https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "restaurantId": "1",
+    "category": "Main Course",
+    "available": true
+  },
+  {
+    "id": "2",
+    "name": "Chicken Tikka Masala",
+    "description": "Tender chicken in a rich, creamy tomato-based sauce",
+    "price": 15.99,
+    "image": "https://images.pexels.com/photos/2474658/pexels-photo-2474658.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "restaurantId": "2",
+    "category": "Main Course",
+    "available": true
+  },
+  {
+    "id": "3",
+    "name": "Sweet & Sour Pork",
+    "description": "Crispy pork with bell peppers and pineapple in sweet & sour sauce",
+    "price": 13.99,
+    "image": "https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "restaurantId": "3",
+    "category": "Main Course",
+    "available": true
+  },
+  {
+    "id": "4",
+    "name": "Caesar Salad",
+    "description": "Fresh romaine lettuce with parmesan cheese and croutons",
+    "price": 8.99,
+    "image": "https://images.pexels.com/photos/1213710/pexels-photo-1213710.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "restaurantId": "1",
+    "category": "Salad",
+    "available": true
+  },
+  {
+    "id": "5",
+    "name": "Pad Thai",
+    "description": "Stir-fried rice noodles with shrimp, tofu, and bean sprouts",
+    "price": 11.99,
+    "image": "https://images.pexels.com/photos/1323712/pexels-photo-1323712.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "restaurantId": "3",
+    "category": "Main Course",
+    "available": true
+  },
+  {
+    "id": "6",
+    "name": "Chocolate Brownie",
+    "description": "Rich chocolate brownie served with vanilla ice cream",
+    "price": 6.99,
+    "image": "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "restaurantId": "1",
+    "category": "Dessert",
+    "available": true
+  }
+]

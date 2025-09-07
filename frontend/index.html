@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodieExpress - Order Food Online</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">🍕 FoodieExpress</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/menu" class="nav-link">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/cart" class="nav-link">
+                        Cart <span class="cart-badge" id="cartBadge">0</span>
+                    </a>
+                </li>
+                <li class="nav-item user-menu" style="display: none;">
+                    <a href="/orders" class="nav-link">Orders</a>
+                </li>
+                <li class="nav-item admin-menu" style="display: none;">
+                    <a href="/admin" class="nav-link">Admin</a>
+                </li>
+                <li class="nav-item auth-menu">
+                    <a href="/auth" class="nav-link" id="authLink">Login</a>
+                </li>
+                <li class="nav-item user-menu" style="display: none;">
+                    <button class="nav-link logout-btn" id="logoutBtn">Logout</button>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Delicious Food Delivered to Your Door</h1>
+                <p>Discover amazing restaurants and order your favorite meals with just a few clicks. Fast delivery guaranteed!</p>
+                <div class="hero-buttons">
+                    <a href="/menu" class="btn btn-primary">Order Now</a>
+                    <a href="#restaurants" class="btn btn-secondary">View Restaurants</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Delicious food">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>Why Choose FoodieExpress?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Get your food delivered hot and fresh within 30-45 minutes</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍽️</div>
+                    <h3>Quality Food</h3>
+                    <p>Partner restaurants serve only the highest quality ingredients</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Easy Payment</h3>
+                    <p>Multiple payment options including cash, card, and digital wallets</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Track Orders</h3>
+                    <p>Real-time order tracking from preparation to delivery</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Restaurants Section -->
+    <section class="restaurants" id="restaurants">
+        <div class="container">
+            <h2>Popular Restaurants</h2>
+            <div class="restaurants-grid" id="restaurantsGrid">
+                <!-- Restaurants will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🍕 FoodieExpress</h3>
+                    <p>Your favorite food delivery service. Order from the best restaurants in your area.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/menu">Menu</a></li>
+                        <li><a href="/auth">Login</a></li>
+                        <li><a href="/orders">Orders</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 (555) 123-4567</p>
+                    <p>✉️ support@foodieexpress.com</p>
+                    <p>📍 123 Food Street, Taste City</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FoodieExpress. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

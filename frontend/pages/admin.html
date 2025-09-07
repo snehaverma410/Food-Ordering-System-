@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - FoodieExpress</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">🍕 FoodieExpress</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/menu" class="nav-link">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/cart" class="nav-link">
+                        Cart <span class="cart-badge" id="cartBadge">0</span>
+                    </a>
+                </li>
+                <li class="nav-item user-menu" style="display: none;">
+                    <a href="/orders" class="nav-link">Orders</a>
+                </li>
+                <li class="nav-item admin-menu">
+                    <a href="/admin" class="nav-link active">Admin</a>
+                </li>
+                <li class="nav-item auth-menu">
+                    <a href="/auth" class="nav-link" id="authLink">Login</a>
+                </li>
+                <li class="nav-item user-menu" style="display: none;">
+                    <button class="nav-link logout-btn" id="logoutBtn">Logout</button>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Header -->
+    <div class="admin-header">
+        <div class="container">
+            <h1>Admin Dashboard</h1>
+            <p>Manage your restaurant empire from here</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main style="padding: 2rem 0; min-height: calc(100vh - 200px);">
+        <div class="container">
+            <!-- Dashboard Stats -->
+            <div id="dashboardStats" class="stats-grid">
+                <div class="loading">Loading dashboard stats...</div>
+            </div>
+
+            <!-- Orders Management -->
+            <div class="admin-section">
+                <h2>Recent Orders</h2>
+                <div class="admin-actions">
+                    <button class="btn btn-primary" onclick="refreshOrders()">Refresh Orders</button>
+                    <select id="orderStatusFilter" class="form-control form-select" style="max-width: 200px;" onchange="filterOrders()">
+                        <option value="">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="preparing">Preparing</option>
+                        <option value="delivered">Delivered</option>
+                    </select>
+                </div>
+                <div id="ordersTable" class="data-table">
+                    <div class="loading">Loading orders...</div>
+                </div>
+            </div>
+
+            <!-- Food Items Management -->
+            <div class="admin-section">
+                <h2>Food Items</h2>
+                <div class="admin-actions">
+                    <button class="btn btn-success" onclick="showFoodItemModal()">Add New Item</button>
+                    <button class="btn btn-secondary" onclick="refreshFoodItems()">Refresh</button>
+                </div>
+                <div id="foodItemsTable" class="data-table">
+                    <div class="loading">Loading food items...</div>
+                </div>
+            </div>
+
+            <!-- Restaurants Management -->
+            <div class="admin-section">
+                <h2>Restaurants</h2>
+                <div class="admin-actions">
+                    <button class="btn btn-success" onclick="showRestaurantModal()">Add New Restaurant</button>
+                    <button class="btn btn-secondary" onclick="refreshRestaurants()">Refresh</button>
+                </div>
+                <div id="restaurantsTable" class="data-table">
+                    <div class="loading">Loading restaurants...</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Food Item Modal -->
+    <div id="foodItemModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="foodItemModalTitle">Add Food Item</h3>
+                <span class="close" onclick="closeFoodItemModal()">&times;</span>
+            </div>
+            <form id="foodItemForm">
+                <input type="hidden" id="foodItemId">
+                <div class="form-group">
+                    <label for="foodItemName">Name</label>
+                    <input type="text" id="foodItemName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="foodItemDescription">Description</label>
+                    <textarea id="foodItemDescription" class="form-control" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="foodItemPrice">Price ($)</label>
+                    <input type="number" id="foodItemPrice" class="form-control" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="foodItemImage">Image URL</label>
+                    <input type="url" id="foodItemImage" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="foodItemRestaurant">Restaurant</label>
+                    <select id="foodItemRestaurant" class="form-control form-select" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="foodItemCategory">Category</label>
+                    <select id="foodItemCategory" class="form-control form-select" required>
+                        <option value="Main Course">Main Course</option>
+                        <option value="Salad">Salad</option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Beverage">Beverage</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="foodItemAvailable" checked>
+                        Available for ordering
+                    </label>
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                    <button type="button" class="btn btn-secondary" onclick="closeFoodItemModal()">Cancel</button>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Restaurant Modal -->
+    <div id="restaurantModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="restaurantModalTitle">Add Restaurant</h3>
+                <span class="close" onclick="closeRestaurantModal()">&times;</span>
+            </div>
+            <form id="restaurantForm">
+                <input type="hidden" id="restaurantId">
+                <div class="form-group">
+                    <label for="restaurantName">Name</label>
+                    <input type="text" id="restaurantName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="restaurantImage">Image URL</label>
+                    <input type="url" id="restaurantImage" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="restaurantCuisine">Cuisine Type</label>
+                    <input type="text" id="restaurantCuisine" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="restaurantRating">Rating (1-5)</label>
+                    <input type="number" id="restaurantRating" class="form-control" min="1" max="5" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label for="restaurantDeliveryTime">Delivery Time</label>
+                    <input type="text" id="restaurantDeliveryTime" class="form-control" placeholder="30-45 min" required>
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                    <button type="button" class="btn btn-secondary" onclick="closeRestaurantModal()">Cancel</button>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+</html>

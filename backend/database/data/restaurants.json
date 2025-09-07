@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "name": "Bella Vista",
+    "image": "https://images.pexels.com/photos/1581384/pexels-photo-1581384.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "cuisine": "Italian",
+    "rating": 4.5,
+    "deliveryTime": "30-45 min"
+  },
+  {
+    "id": "2",
+    "name": "Spice Garden",
+    "image": "https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "cuisine": "Indian",
+    "rating": 4.3,
+    "deliveryTime": "25-35 min"
+  },
+  {
+    "id": "3",
+    "name": "Dragon Palace",
+    "image": "https://images.pexels.com/photos/1148086/pexels-photo-1148086.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "cuisine": "Chinese",
+    "rating": 4.7,
+    "deliveryTime": "35-50 min"
+  }
+]

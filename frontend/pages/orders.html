@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - FoodieExpress</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="/">🍕 FoodieExpress</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/menu" class="nav-link">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/cart" class="nav-link">
+                        Cart <span class="cart-badge" id="cartBadge">0</span>
+                    </a>
+                </li>
+                <li class="nav-item user-menu">
+                    <a href="/orders" class="nav-link active">Orders</a>
+                </li>
+                <li class="nav-item admin-menu" style="display: none;">
+                    <a href="/admin" class="nav-link">Admin</a>
+                </li>
+                <li class="nav-item auth-menu">
+                    <a href="/auth" class="nav-link" id="authLink">Login</a>
+                </li>
+                <li class="nav-item user-menu">
+                    <button class="nav-link logout-btn" id="logoutBtn">Logout</button>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main style="margin-top: 80px; padding: 2rem 0; min-height: calc(100vh - 80px);">
+        <div class="container">
+            <h1 class="text-center mb-3">My Orders</h1>
+            
+            <div id="ordersContent">
+                <div class="loading">Loading your orders...</div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/orders.js"></script>
+</body>
+</html>
